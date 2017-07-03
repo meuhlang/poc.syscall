@@ -1,10 +1,13 @@
+; vim:set ts=4 sw=4 tw=80 et:
+; https://filippo.io/making-system-calls-from-assembly-in-mac-os-x/
+
 global start
 
 section .text
 
 start:
     call    _print
-	call	_exit
+    call    _exit
 
 _print:
     mov     rax, 0x2000004 ; write
@@ -12,15 +15,15 @@ _print:
     mov     rsi, msg
     mov     rdx, msg.len
     syscall
-	ret
+    ret
 
 _exit:
     mov     rax, 0x2000001 ; exit
     mov     rdi, 12
     syscall
-	ret
+    ret
 
 section .data
 
-msg:    db      "Hello, world!", 10
-.len:   equ     $ - msg
+msg:    db  "Hello, world!", 10
+.len:   equ $ - msg
