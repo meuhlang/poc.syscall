@@ -12,6 +12,7 @@ _print:
     mov     rsi, msg
     mov     rdx, msg.len
     syscall
+	ret
 
 _exit:
     mov     rax, 0x2000001 ; exit
