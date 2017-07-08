@@ -1,8 +1,13 @@
+<!-- vim:set ts=4 sw=4 tw=100 et: -->
+
 # Just play to implement syscall on various OS/ARCH
 
 Thoses stacks are tested :
 - `nasm` & `ld`
 - `llvm-llc` & `llvm-lld`
+
+[C declaration](https://en.wikipedia.org/wiki/X86_calling_conventions#cdecl) calling convention is
+used.
 
 # Some literature
 - System calls
