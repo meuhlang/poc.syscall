@@ -10,6 +10,9 @@ Thoses stacks are tested :
 used.
 
 # Some literature
+- Architecture
+    - https://www.intel.com/content/www/us/en/architecture-and-technology/64-ia-32-architectures-software-developer-vol-2b-manual.html
+    - https://software.intel.com/sites/default/files/article/402129/mpx-linux64-abi.pdf
 - System calls
     - http://www.int80h.org/
     - https://www.freebsd.org/doc/en/books/developers-handbook/x86-system-calls.html
