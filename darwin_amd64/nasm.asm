@@ -1,4 +1,4 @@
-; vim:set ts=4 sw=4 tw=80 et:
+; vim:set ts=4 sw=4 tw=100 et:
 ; https://filippo.io/making-system-calls-from-assembly-in-mac-os-x/
 
 global start

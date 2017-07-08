@@ -1,4 +1,4 @@
-; vim:set ts=4 sw=4 tw=80 et:
+; vim:set ts=4 sw=4 tw=100 et:
 ; https://www.freebsd.org/doc/en/books/developers-handbook/x86-system-calls.html
 
 global  start
