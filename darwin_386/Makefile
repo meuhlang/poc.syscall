@@ -1,5 +1,4 @@
 NASM=/usr/local/Cellar/nasm/2.13.01/bin/nasm
-LLD=/usr/local/Cellar/llvm/4.0.1/bin/ld.lld
 
 all: nasm.ld
 
