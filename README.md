@@ -1,6 +1,6 @@
 # Just play to implement syscall on various OS/ARCH
 
-I will try to use those stacks :
+Thoses stacks are tested :
 - `nasm` & `ld`
 - `llvm-llc` & `llvm-lld`
 
