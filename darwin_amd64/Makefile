@@ -21,5 +21,7 @@ run:
 	file binary
 	@echo "= Show symbol =========================="
 	otool -L binary
+	@echo "= Disasembly ==========================="
+	otool -tv binary
 	@echo "= Execute binary ======================="
 	./binary; echo Return code $$?
