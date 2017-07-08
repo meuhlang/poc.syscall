@@ -6,9 +6,6 @@ clean:
 	@echo "= Clean ================================"
 	rm -f object.o binary
 
-dump:
-	$(NDISASM) -b 64
-
 build.nasm:
 	@echo "= Build: nasm =========================="
 	$(NASM) -f macho -o object.o nasm.asm
