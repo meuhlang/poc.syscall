@@ -8,7 +8,7 @@ section .text
 start:
     push    dword msg.len ; Message length
     push    dword msg ; Message pointer
-    push    dword 2 ; stdout
+    push    dword 1 ; stdout
     call    _write
     add     esp, 12 ; Clean stack
 
