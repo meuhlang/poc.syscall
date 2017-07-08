@@ -13,6 +13,7 @@ used.
 - Architecture
     - https://www.intel.com/content/www/us/en/architecture-and-technology/64-ia-32-architectures-software-developer-vol-2b-manual.html
     - https://software.intel.com/sites/default/files/article/402129/mpx-linux64-abi.pdf
+    - http://courses.cs.washington.edu/courses/cse378/10au/sections/Section1_recap.pdf
 - System calls
     - http://www.int80h.org/
     - https://www.freebsd.org/doc/en/books/developers-handbook/x86-system-calls.html
