@@ -1,5 +1,5 @@
-NASM=/usr/local/Cellar/nasm/2.13.01/bin/nasm
-LLI=/usr/local/Cellar/llvm/4.0.1/bin/lli
+NASM=/usr/local/opt/nasm/bin/nasm
+LLI=/usr/local/opt/llvm/bin/lli
 
 all: nasm.ld lli
 

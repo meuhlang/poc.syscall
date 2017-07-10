@@ -1,4 +1,4 @@
-NASM=/usr/local/Cellar/nasm/2.13.01/bin/nasm
+NASM=/usr/local/opt/nasm/bin/nasm
 
 all: nasm.ld
 
