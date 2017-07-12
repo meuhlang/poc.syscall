@@ -7,11 +7,18 @@ target triple = "x86_64-apple-darwin16.6.0"
 @syscallExit = internal constant i64 33554433; Equal to 0x2000001
 @syscallWrite = internal constant i64 33554436; Equal to 0x2000004
 
+define i32 @start() {
+    %1 = call i32 @main()
+    call void @_exit(i32 %1)
+
+    ; Dead code
+    ret i32 0
+}
+
 define i32 @main() {
     %1 = call i64 @_write(i32 1, i8* getelementptr inbounds ([14 x i8], [14 x i8]* @str, i32 0, i32 0), i64 14)
     %2 = trunc i64 %1 to i32
-    call void @_exit(i32 %2)
-    ret i32 0
+    ret i32 %2
 }
 
 define i64 @_write(i32 %fd, i8* %str, i64 %nbyte) {
