@@ -2,9 +2,12 @@
 
 # Just play to implement syscall on various OS/ARCH
 
-Thoses stacks are tested :
-- `nasm` & `ld`
-- `llvm-llc` & `llvm-lld`
+Supported platforms / build chain :
+
+   OS  |  Arch  | nasm/ld | nasm/llvm-lld | llvm-llc/ld | llvm-llc/llvm-lld | Notes
+-------|--------|---------|---------------|-------------|-------------------|-------
+Darwin | x86-64 |   Yes   |       No      |     Yes     |         No        | No llvm-lld support
+Linux  | x86-64 |   Yes   |     No yet    |     Yes     |       No yet      |
 
 [C declaration](https://en.wikipedia.org/wiki/X86_calling_conventions#cdecl) calling convention is
 used.
