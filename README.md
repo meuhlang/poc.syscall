@@ -22,3 +22,5 @@ used.
     - http://www.nasm.us/
 	- https://en.wikibooks.org/wiki/X86_Assembly
 	- https://cs.brown.edu/courses/cs033/docs/guides/x64_cheatsheet.pdf
+- MacOS
+    - https://opensource.apple.com/source/xnu/xnu-1504.3.12/bsd/kern/syscalls.master
