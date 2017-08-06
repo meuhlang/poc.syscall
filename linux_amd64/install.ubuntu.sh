@@ -9,4 +9,4 @@ packages=(
 
 sudo add-apt-repository universe
 sudo apt-get update
-sudo apt-get install "${packages[@]}"
+sudo apt-get -y install "${packages[@]}"
