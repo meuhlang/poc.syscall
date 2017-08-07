@@ -1,4 +1,5 @@
 NASM=/usr/local/opt/nasm/bin/nasm
+LINK=/usr/local/opt/llvm/bin/llvm-link
 LLC=/usr/local/opt/llvm/bin/llc
 LLI=/usr/local/opt/llvm/bin/lli
 
@@ -17,7 +18,8 @@ build.nasm:
 
 build.llc:
 	@echo "= Build: llc ==========================="
-	$(LLC) -march=x86-64 -filetype=obj -o object.o llvm.ll
+	$(LINK) ../common/llvm.ll llvm.ll -o llvm.bc
+	$(LLC) -march=x86-64 -filetype=obj -o object.o llvm.bc
 
 link.ld:
 	@echo "= Link: ld ============================="
