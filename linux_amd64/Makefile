@@ -1,6 +1,6 @@
 all:
-	echo $(MAKE) nasm.ld
-	$(MAKE) llc.ld.ld
+	$(MAKE) nasm.ld
+	$(MAKE) llc.ld
 
 clean:
 	@echo "= Clean ================================"
