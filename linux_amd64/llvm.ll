@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @syscallExit = internal constant i64 60
 @syscallWrite = internal constant i64 1
 
-define i32 @start() {
+define i32 @_start() {
     %1 = call i32 @main()
     call void @_exit(i32 %1)
 
