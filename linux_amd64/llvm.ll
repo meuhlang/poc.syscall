@@ -11,8 +11,7 @@ define i32 @start() {
     %1 = call i32 @main()
     call void @_exit(i32 %1)
 
-    ; Dead code
-    ret i32 0
+    unreachable
 }
 
 define i32 @main() {
@@ -30,6 +29,7 @@ define i64 @_write(i32 %fd, i8* %str, i64 %nbyte) {
 define void @_exit(i32 %status) noreturn {
     %1 = load i64, i64* @syscallExit
     call void asm sideeffect "syscall", "{ax},{di}"(i64 %1, i32 %status)
-    ret void
+
+    unreachable
 }
 
