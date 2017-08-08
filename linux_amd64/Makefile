@@ -12,7 +12,7 @@ build.nasm:
 
 build.llc:
 	@echo "= Build: llc ==========================="
-	llvm-link ../common/llvm.ll llvm.ll -o llvm.bc
+	llvm-link ../common/llvm.ll ../common/llvm.amd64.ll llvm.ll -o llvm.bc
 	llc -march=x86-64 -filetype=obj -o object.o llvm.bc
 	file object.o
 
