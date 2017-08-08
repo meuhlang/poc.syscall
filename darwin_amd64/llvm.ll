@@ -3,27 +3,16 @@
 target datalayout = "e-m:o-i64:64-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-apple-darwin16.6.0"
 
-@syscallExit = internal constant i64 33554433; Equal to 0x2000001
-@syscallWrite = internal constant i64 33554436; Equal to 0x2000004
+@syscallExit = constant i64 33554433; Equal to 0x2000001
+@syscallWrite = constant i64 33554436; Equal to 0x2000004
 
 declare i32 @main()
+declare i64 @_write(i32 %fd, i8* %str, i64 %nbyte)
+declare void @_exit(i32 %status) noreturn
 
 define i32 @start() {
     %1 = call i32 @main()
     call void @_exit(i32 %1)
-
-    unreachable
-}
-
-define i64 @_write(i32 %fd, i8* %str, i64 %nbyte) {
-    %1 = load i64, i64* @syscallWrite
-    %2 = call i64 asm sideeffect "syscall", "=A,{ax},{di},{si},{dx}"(i64 %1, i32 %fd, i8* %str, i64 %nbyte)
-    ret i64 %2
-}
-
-define void @_exit(i32 %status) noreturn {
-    %1 = load i64, i64* @syscallExit
-    call void asm sideeffect "syscall", "{ax},{di}"(i64 %1, i32 %status)
 
     unreachable
 }
