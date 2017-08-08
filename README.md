@@ -12,6 +12,9 @@ Linux  | x86-64 |   Yes   |     No yet    |     Yes     |       No yet      |
 [C declaration](https://en.wikipedia.org/wiki/X86_calling_conventions#cdecl) calling convention is
 used.
 
+# Assumption
+- syscall convention : All amd64 architectures use the same syscall convention
+
 # Some literature
 - Architecture
     - https://www.intel.com/content/www/us/en/architecture-and-technology/64-ia-32-architectures-software-developer-vol-2b-manual.html
