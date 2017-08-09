@@ -36,4 +36,4 @@ run:
 	@echo "= Disasembly ==========================="
 	otool -tv binary
 	@echo "= Execute binary ======================="
-	./binary; echo Return code $$?
+	./binary "First arg" "Second arg"; echo Return code $$?

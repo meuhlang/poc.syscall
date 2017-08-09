@@ -10,8 +10,8 @@ declare i32 @main(i32, i8**)
 declare i64 @_write(i32 %fd, i8* %str, i64 %nbyte)
 declare void @_exit(i32 %status) noreturn
 
-define i32 @start() {
-    %1 = call i32 @main(i32 0, i8** null)
+define i32 @start(i32 %argc, i8** %argv) {
+    %1 = call i32 @main(i32 %argc, i8** %argv)
     call void @_exit(i32 %1)
 
     unreachable
