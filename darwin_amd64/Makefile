@@ -4,7 +4,7 @@ LLC=/usr/local/opt/llvm/bin/llc
 
 all:
 	$(MAKE) nasm.ld
-	$(MAKE) llc.ld
+	$(MAKE) llvm.ld
 
 clean:
 	@echo "= Clean ================================"
@@ -14,8 +14,8 @@ build.nasm:
 	@echo "= Build: nasm =========================="
 	$(NASM) -f macho64 -o object.o nasm.asm
 
-build.llc:
-	@echo "= Build: llc ==========================="
+build.llvm:
+	@echo "= Build: llvm =========================="
 	$(LINK) ../common/llvm.ll ../common/llvm.amd64.ll llvm.ll -o llvm.bc
 	$(LLC) -march=x86-64 -filetype=obj -o object.o llvm.bc
 
@@ -25,8 +25,8 @@ link.ld:
 
 nasm.ld: | clean build.nasm link.ld run
 
-llc.ld: LDFLAGS = -e _start -lSystem -macosx_version_min 10.12
-llc.ld: | clean build.llc link.ld run
+llvm.ld: LDFLAGS = -e _start -lSystem -macosx_version_min 10.12
+llvm.ld: | clean build.llvm link.ld run
 
 run:
 	@echo "= Determine file type =================="
