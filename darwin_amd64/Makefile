@@ -1,12 +1,10 @@
 NASM=/usr/local/opt/nasm/bin/nasm
 LINK=/usr/local/opt/llvm/bin/llvm-link
 LLC=/usr/local/opt/llvm/bin/llc
-LLI=/usr/local/opt/llvm/bin/lli
 
 all:
 	$(MAKE) nasm.ld
 	$(MAKE) llc.ld
-	$(MAKE) lli
 
 clean:
 	@echo "= Clean ================================"
@@ -39,7 +37,3 @@ run:
 	otool -tv binary
 	@echo "= Execute binary ======================="
 	./binary; echo Return code $$?
-
-lli:
-	@echo "= Execute llvm-lli ====================="
-	$(LLI) llvm.ll; echo Return code $$?
