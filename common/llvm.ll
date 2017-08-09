@@ -8,7 +8,7 @@ target datalayout = "e-m:o-i64:64-f80:128-n8:16:32:64-S128"
 declare i64 @_write(i32, i8*, i64)
 declare void @_exit(i32) noreturn
 
-define i32 @main(i32 %argc, i8** %argv) {
+define i32 @main(i32 %argc, i8** %argv, i32 %envc, i8** %envp) {
     %isEmpty = icmp eq i32 %argc, 0
     br i1 %isEmpty, label %cond.isEmpty, label %cond.isNotEmpty
 

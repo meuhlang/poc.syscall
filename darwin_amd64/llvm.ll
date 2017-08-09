@@ -6,12 +6,12 @@ target triple = "x86_64-apple-darwin16.6.0"
 @syscallExit = constant i64 33554433; Equal to 0x2000001
 @syscallWrite = constant i64 33554436; Equal to 0x2000004
 
-declare i32 @main(i32, i8**)
+declare i32 @main(i32, i8**, i32, i8**)
 declare i64 @_write(i32 %fd, i8* %str, i64 %nbyte)
 declare void @_exit(i32 %status) noreturn
 
 define i32 @start(i32 %argc, i8** %argv) {
-    %1 = call i32 @main(i32 %argc, i8** %argv)
+    %1 = call i32 @main(i32 %argc, i8** %argv, i32 0, i8** null)
     call void @_exit(i32 %1)
 
     unreachable

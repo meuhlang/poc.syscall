@@ -6,12 +6,12 @@ target triple = "x86_64-pc-linux-gnu"
 @syscallExit = constant i64 60
 @syscallWrite = constant i64 1
 
-declare i32 @main(i32, i8**)
+declare i32 @main(i32, i8**, i32, i8**, i32 0, i8** null)
 declare i64 @_write(i32 %fd, i8* %str, i64 %nbyte)
 declare void @_exit(i32 %status) noreturn
 
 define i32 @_start() {
-    %1 = call i32 @main(i32 0, i8** null)
+    %1 = call i32 @main(i32 %argc, i8** %argv, i32 0, i8** null)
     call void @_exit(i32 %1)
 
     unreachable
