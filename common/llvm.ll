@@ -2,14 +2,19 @@
 
 target datalayout = "e-m:o-i64:64-f80:128-n8:16:32:64-S128"
 
-@str = internal constant [36 x i8] c"Arguments array (argv) is empty !!!\00"
+@printArgv = internal constant [18 x i8] c"The ARGV content:\00"
+@printEnvp = internal constant [19 x i8] c"\0AThe ENVP content:\00"
+@str = internal constant [29 x i8] c"Arguments array is empty !!!\00"
 @newLine = internal constant [1 x i8] c"\0A"
 
 declare i64 @_write(i32, i8*, i64)
 declare void @_exit(i32) noreturn
 
 define i32 @main(i32 %argc, i8** %argv, i32 %envc, i8** %envp) {
+    call i64 @puts(i8* getelementptr inbounds ([18 x i8], [18 x i8]* @printArgv, i32 0, i32 0))
     call void @printArgs(i32 %argc, i8** %argv)
+    call i64 @puts(i8* getelementptr inbounds ([19 x i8], [19 x i8]* @printEnvp, i32 0, i32 0))
+    call void @printArgs(i32 %envc, i8** %envp)
     ret i32 %argc
 }
 
@@ -18,7 +23,7 @@ define void @printArgs(i32 %argc, i8** %argv) {
     br i1 %isEmpty, label %cond.isEmpty, label %cond.isNotEmpty
 
 cond.isEmpty:
-    call i64 @puts(i8* getelementptr inbounds ([36 x i8], [36 x i8]* @str, i32 0, i32 0))
+    call i64 @puts(i8* getelementptr inbounds ([29 x i8], [29 x i8]* @str, i32 0, i32 0))
     ret void
 
 cond.isNotEmpty:
@@ -74,4 +79,26 @@ define i64 @puts(i8* %str) {
     %ret = add i64 %writtenStr, %writtenNewLine
 
     ret i64 %ret
+}
+
+define i32 @computeNullArrayLength(i8** %array) {
+    %iptr = alloca i32
+    store i32 0, i32* %iptr
+    br label %for.cond
+
+for.cond:
+    %i = load i32, i32* %iptr
+    %varPtr = getelementptr inbounds i8*, i8** %array, i32 %i
+    %var = load i8*, i8** %varPtr
+    %isNull = icmp eq i8* %var, null
+    br i1 %isNull, label %for.end, label %for.body
+
+for.body:
+    %newi = add i32 %i, 1
+    store i32 %newi, i32* %iptr
+    br label %for.cond
+
+for.end:
+    %ret = load i32, i32* %iptr
+    ret i32 %ret
 }
