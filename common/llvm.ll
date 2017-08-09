@@ -9,13 +9,17 @@ declare i64 @_write(i32, i8*, i64)
 declare void @_exit(i32) noreturn
 
 define i32 @main(i32 %argc, i8** %argv, i32 %envc, i8** %envp) {
+    call void @printArgs(i32 %argc, i8** %argv)
+    ret i32 %argc
+}
+
+define void @printArgs(i32 %argc, i8** %argv) {
     %isEmpty = icmp eq i32 %argc, 0
     br i1 %isEmpty, label %cond.isEmpty, label %cond.isNotEmpty
 
 cond.isEmpty:
-    %1 = call i64 @puts(i8* getelementptr inbounds ([36 x i8], [36 x i8]* @str, i32 0, i32 0))
-    %2 = trunc i64 %1 to i32
-    ret i32 %2
+    call i64 @puts(i8* getelementptr inbounds ([36 x i8], [36 x i8]* @str, i32 0, i32 0))
+    ret void
 
 cond.isNotEmpty:
     %iptr = alloca i32
@@ -36,7 +40,7 @@ for.body:
     br label %for.cond
 
 for.end:
-    ret i32 %argc
+    ret void
 }
 
 define i32 @strlen(i8* %str) {
