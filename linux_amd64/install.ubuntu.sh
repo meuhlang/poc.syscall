@@ -8,10 +8,10 @@ set -o pipefail
 set -o nounset
 
 packages=(
-	"vim"
-	"llvm"
-	"nasm"
-	"git"
+    "vim"
+    "llvm"
+    "nasm"
+    "git"
 )
 
 sudo add-apt-repository universe
