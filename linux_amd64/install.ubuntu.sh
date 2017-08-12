@@ -10,6 +10,7 @@ set -o nounset
 packages=(
     "vim"
     "llvm"
+    "lld-4.0"
     "nasm"
     "git"
 )

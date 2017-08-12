@@ -1,6 +1,7 @@
 all:
 	$(MAKE) nasm.ld
 	$(MAKE) llvm.ld
+	$(MAKE) llvm.llvm
 
 clean:
 	@echo "= Clean ================================"
@@ -20,8 +21,13 @@ link.ld:
 	@echo "= Link: ld ============================="
 	ld -o binary object.o
 
+link.llvm:
+	@echo "= Link: llvm ==========================="
+	ld.lld-4.0 -o binary object.o
+
 nasm.ld: | clean build.nasm link.ld run
 llvm.ld: | clean build.llvm link.ld run
+llvm.llvm: | clean build.llvm link.llvm run
 
 run:
 	@echo "= Determine file type =================="
