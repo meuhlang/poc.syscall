@@ -26,5 +26,7 @@ llvm.ld: | clean build.llvm link.ld run
 run:
 	@echo "= Determine file type =================="
 	file binary
+	@echo "= Disasembly ==========================="
+	objdump -d binary
 	@echo "= Execute binary ======================="
 	./binary; echo Return code $$?
