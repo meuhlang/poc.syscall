@@ -7,7 +7,7 @@ Supported platforms / build chain :
    OS  |  Arch  | nasm/ld | nasm/llvm | llvm/ld | llvm/llvm | Notes
 -------|--------|---------|-----------|---------|-----------|-------
 Darwin | x86-64 |   Yes   |     No    |   Yes   |     No    | No llvm-lld support
-Linux  | x86-64 |   Yes   |   No yet  |   Yes   |    Yes    |
+Linux  | x86-64 |   Yes   |    Yes    |   Yes   |    Yes    |
 
 [C declaration](https://en.wikipedia.org/wiki/X86_calling_conventions#cdecl) calling convention is
 used.

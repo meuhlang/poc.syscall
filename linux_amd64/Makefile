@@ -1,5 +1,6 @@
 all:
 	$(MAKE) nasm.ld
+	$(MAKE) nasm.llvm
 	$(MAKE) llvm.ld
 	$(MAKE) llvm.llvm
 
@@ -26,6 +27,7 @@ link.llvm:
 	ld.lld-4.0 -o binary object.o
 
 nasm.ld: | clean build.nasm link.ld run
+nasm.llvm: | clean build.nasm link.llvm run
 llvm.ld: | clean build.llvm link.ld run
 llvm.llvm: | clean build.llvm link.llvm run
 
