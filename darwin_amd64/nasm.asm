@@ -1,10 +1,10 @@
 ; vim:set ts=4 sw=4 tw=100 et:
 
-global start
+global _main
 
 section .text
 
-start:
+_main:
     mov     rdx, msg.len ; Message length
     mov     rsi, msg ; Message pointer
     mov     rdi, dword 1 ; stdout

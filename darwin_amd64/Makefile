@@ -25,7 +25,7 @@ link.ld:
 
 nasm.ld: | clean build.nasm link.ld run
 
-llvm.ld: LDFLAGS = -e _start -lSystem -macosx_version_min 10.12
+llvm.ld: LDFLAGS = -e _start -lSystem -macosx_version_min 10.12 -L$(shell xcode-select -p)/SDKs/MacOSX.sdk/usr/lib
 llvm.ld: | clean build.llvm link.ld run
 
 run:
